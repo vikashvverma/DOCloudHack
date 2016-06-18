@@ -9,7 +9,7 @@ var multer = require('multer');
 var fileType = '';
 
 var app = new express();
-app.listen(3000);
+app.listen(8080);
 app.use(express.static('public'));
 app.use(express.static(__dirname + "/public"));
 app.use(cookieParser());
@@ -25,13 +25,6 @@ app.use(session({
 app.use(morgan('dev'));
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
-});
-app.post('/info', function(req, res) {
-  var model = req.body;
-  console.log(model.ip);
-  res.status(200).send({
-    "name": "Vikash"
-  });
 });
 app.post('/install', function(req, res) {
   var model = req.body;
@@ -83,7 +76,7 @@ app.post('/install', function(req, res) {
 
 app.get('/discover', function(req, res) {
 
-  childProcess.exec("arp-scan -I wlan0 -l | tail -n +3 | head -n -3|awk '{print $1}' > ip.txt ", function(error, stdout, stderr) {
+  childProcess.exec("arp-scan -I eth0 -l | tail -n +3 | head -n -3|awk '{print $1}' | head -n 50' > ip.txt ", function(error, stdout, stderr) {
     //console.log('stdout: ' + stdout);
     //console.log('stderr: ' + stderr);
     if (error !== null) {
