@@ -76,7 +76,7 @@ app.post('/install', function(req, res) {
 
 app.get('/discover', function(req, res) {
 
-  childProcess.exec("arp-scan -I eth0 -l | tail -n +3 | head -n -3|awk '{print $1}' | head -n 50' > ip.txt ", function(error, stdout, stderr) {
+  childProcess.exec("arp-scan -I eth0 -l | tail -n +3 | head -n -3|awk '{print $1}' | head -n 50 > ip.txt ", function(error, stdout, stderr) {
     //console.log('stdout: ' + stdout);
     //console.log('stderr: ' + stderr);
     if (error !== null) {
