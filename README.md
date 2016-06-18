@@ -18,7 +18,7 @@ Device resource management
  
 # Installing
 
-## Prerequisites
+## Prerequists
 
 - git
 - NodeJS
@@ -33,5 +33,6 @@ Device resource management
 - Run `node app.js` (you can change port mentioned in app.js, default port is 8080)
 - Open Browser and access `http://localhost`
 
-
+# Support
+Drop a mail to `vermavikash014@gmail.com` or `nitish.bhardwaj11@gmail.com` or create an [issue](https://github.com/vikashvverma/DOCloudHack) in case you run into any trouble
  
